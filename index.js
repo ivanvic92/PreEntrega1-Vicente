@@ -1,10 +1,12 @@
 
+// DECLARAMOS VARIABLE DE EDAD Y ARRAYS VACIOS PARA LUEGO CARGARLOS CON EL METODO PUSH
 let mayorEdad = parseInt(prompt('Bienvenido, ingrese su edad en números: '))
 let baseUsuarios = []
 const librosTerror = []
 const librosPolicial = []
 const librosFantasia = []
 
+//CREAMOS CLASE CONSTRUCTORA DE OBJETOS QUE LUEGO IRAN EN LOS ARRAYS CORRESPONDIENTES
 class Libro {
     constructor(titulo, autor, genero, precio, promocion) {
         this.titulo = titulo.toUpperCase()
@@ -13,13 +15,14 @@ class Libro {
         this.precio = parseFloat(precio)
         this.promocion = promocion
     }
-
+//FUNCION PARA APLICAR DESCUENTO SOBRE LA PROPIEDAD PRECIO DE UN OBJETO
     aplicarDescuento() {
         this.precio = this.precio - (this.precio * 0.2)
         return this.precio
     }
 }
 
+//APLICAMOS METODO PUSH Y UTILIZAMOS LA CLASE CONSTRUCTORA (PREVIAMENTE CREADA) PARA IR CARGANDO LOS ARRAYS CON DISTINTOS OBJETOS
 librosTerror.push(new Libro('Cementerio de Animales', 'Stephen King', 'Terror', 2500, true))
 librosTerror.push(new Libro('Misery', 'Stephen King', 'Terror', 1500, false))
 librosPolicial.push(new Libro('El psicoanalista', 'John Katzenbach', 'Policial', 3000, true))
@@ -27,7 +30,7 @@ librosPolicial.push(new Libro('Confianza ciega', 'John Katzenbach', 'Policial', 
 librosFantasia.push(new Libro('El señor de los anillos: El retorno del Rey', 'J. R. R. Tolkien', 'Fantasia', 5000, true))
 librosFantasia.push(new Libro('El señor de los anillos: Las dos torres', 'J. R. R. Tolkien', 'Fantasia', 3500, false))
 
-
+// CREAMOS UNA CLASE PARA UN OBJETO PERSONA, CUYOS VALORES IREMOS CARGANDO MEDIANTE PROMPT'S
 class Persona {
     constructor(nombre, apellido, preferencia) {
         this.nombre = nombre.toUpperCase()
@@ -39,6 +42,7 @@ class Persona {
         alert('HOLA, SOY EL ASISTENTE PARA TU PRIMER COMPRA DE LIBROS. BIENVENIDO' + ' ' + this.nombre + ' ' + this.apellido)
     }
 }
+//SI SE CUMPLE CON LA CONDICION MAYORIA DE EDAD SE GENERA UNA SALIDA CON LOS DATOS CARGADOS MEDIANTE PROMPTS
 if (mayorEdad >= 18) {
     let nombre = prompt('Ingrese su nombre: ')
     let apellido = prompt('Ingrese su appellido: ')
@@ -50,6 +54,7 @@ if (mayorEdad >= 18) {
     alert('No tiene la edad mínima para continuar')
 }
 
+//CONDICIONAL SEGUN EL VALOR DE LA VARIABLE PREFERENCIA, PREVIAMENTE CARGADA MEDIANTE PROMPTS
 if (baseUsuarios[0].preferencia === 'TERROR') {
     for (const libro of librosTerror) {
         alert('Sugerimos estos libros: ' + '\nTitulo: ' + libro.titulo + '\nAutor: ' + libro.autor)
