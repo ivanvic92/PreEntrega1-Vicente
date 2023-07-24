@@ -79,8 +79,11 @@ header {
     width: 100%;
   }
 
+  main {
+    height: 700px;
+  }
+
   footer {
-    position: absolute;
     bottom: 0;
     height: 50px;
     border-top: 2px solid rgb(157, 199, 7);
